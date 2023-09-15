@@ -1,10 +1,12 @@
 {
   "name": "fragments-ui",
+  "source": "index.html",
   "private": true,
   "version": "0.0.1",
   "description": "Fragments UI testing web app",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel"
   },
   "repository": {
     "type": "git",
@@ -13,7 +15,11 @@
   "author": "Glenn Parreno <geparreno@myseneca.ca>",
   "license": "UNLICENSED",
   "devDependencies": {
-    "parcel": "^2.9.3"
+    "buffer": "^6.0.3",
+    "parcel": "^2.9.3",
+    "process": "^0.11.10",
+    "punycode": "^1.4.1",
+    "querystring-es3": "^0.2.1"
   },
   "dependencies": {
     "aws-amplify": "^5.3.11"
