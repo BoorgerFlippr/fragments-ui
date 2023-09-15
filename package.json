@@ -1,0 +1,21 @@
+{
+  "name": "fragments-ui",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Fragments UI testing web app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoorgerFlippr/fragments-ui.git"
+  },
+  "author": "Glenn Parreno <geparreno@myseneca.ca>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  },
+  "dependencies": {
+    "aws-amplify": "^5.3.11"
+  }
+}
