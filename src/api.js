@@ -24,3 +24,28 @@ export async function getUserFragments(user) {
     console.error('Unable to call GET /v1/fragment', { err });
   }
 }
+
+//make a post request
+export async function postUserFragments(user, data){
+  console.log('Sending it to API');
+  try {
+    var auth = user.authorizationHeaders();
+    var headers = Object.assign(
+      auth,
+      {"Content-Type": "text/plain"}
+  );
+    const res = await fetch(`${apiUrl}/v1/fragments`,{
+      method: "POST",
+      headers: headers,
+      body: data
+    })
+    if(res.ok){
+      const data = await res.json();
+      console.log("Fragment created successfully", { data });
+    } else {
+      console.error("Error:", res.statusText)
+    }
+  } catch (error) {
+    console.log("Error:", error);
+  }
+}

@@ -1,7 +1,7 @@
 // src/app.js
 
 import { Auth, getUser } from './auth';
-import { getUserFragments } from './api';
+import { getUserFragments, postUserFragments } from './api';
 
 async function init() {
   // Get our UI elements
@@ -30,6 +30,14 @@ async function init() {
   }
 
   getUserFragments(user);
+
+  document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    var content = document.getElementById("textArea").value;
+
+    postUserFragments(user, content);
+  })
 
   // Log the user info for debugging purposes
   console.log({ user });
