@@ -15,11 +15,28 @@
       <h2>Hello <span class="username"></span>!</h2>
       <br/>
       <form id="form">
-        <p>Type something:</p>
+        <label for="textArea">Create a fragment</label>
         <textarea id="textArea" name="textArea" rows="4" cols="50">Your fragment goes here
         </textarea>
+        <label for="content-type">Select a content type:</label>
+        <select id="content-type" name="content-type">
+          <option value="text/plain">.txt</option>
+          <option value="text/markdown">.md</option>
+          <option value="text/html">.html</option>
+          <option value="application/json">.json</option>
+        </select>
+        <br/><br/>
         <input type="submit" value="Submit">
+        <br/><br/>
       </form>
+
+      <div>
+        <button id="getAll">Get user fragments</button>
+        <br/><br/>
+        <div id="textHere">
+
+        </div>
+      </div>
     </section>
   </body>
 </html>
