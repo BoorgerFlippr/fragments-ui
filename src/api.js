@@ -140,11 +140,14 @@ export async function putUserFragments(user, id, data, cont){
     if(res.ok){
       const data = await res.json();
       console.log("Fragment updated successfully", {data});
+      document.getElementById("msgPutHere").innerText = `Fragment ${id} updated`;
     } else {
       console.log("Error:", res.statusText)
+      document.getElementById("msgPutHere").innerText = `Error updating Fragment ${id}`;
     }
   } catch (error) {
     console.log("Error:", error)
+    document.getElementById("msgPutHere").innerText = `Error updating Fragment ${id}`;
   }
 }
 

@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Fragments UI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/bamboo.css" />
     <script type="module" src="src/app.js"></script>
   </head>
@@ -15,8 +16,9 @@
       <h2>Hello <span class="username"></span>!</h2>
       <br/>
       <form id="form">
+        <h1>Create</h1>
         <label for="textArea">Create a fragment</label>
-        <textarea id="textArea" name="textArea" rows="4" cols="50">Your fragment goes here
+        <textarea id="textArea" name="textArea" rows="4" cols="50">
         </textarea>
         <label for="content-type">Select a content type:</label>
         <select id="content-type" name="content-type">
@@ -29,14 +31,57 @@
         <input type="submit" value="Submit">
         <br/><br/>
       </form>
-
+      <hr/>
+      <h1>Read</h1>
       <div>
         <button id="getAll">Get user fragments</button>
         <br/><br/>
-        <div id="textHere">
-
-        </div>
       </div>
+
+      <table id="tb">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Created</th>
+          <th scope="col">Updated</th>
+          <th scope="col">Type</th>
+          <th scope="col">Size</th>
+        </tr>
+      </table>
+      <hr/>
+      <form id="formGetId">
+        <label for="textG">Get/Convert a fragment. Type the id of the fragment you wish to get. Type the extension at the end if you want to convert</label>
+        <input type="text" id="textG" name="textG">
+        <br/><br/>
+        <input type="submit" value="Submit">
+        <br/><br/>
+      </form>
+      <h4>User fragment: </h4><h4 id="dataHere"></h4>
+      <hr/>
+      <h1>Update</h1>
+      <form id="formPutId">
+        <p>Type in the id of the fragment you want to edit. Then type what you to replace it with.</p>
+        <label for="textID">Type fragment ID below.</label>
+        <input type="text" id="textID" name="textID">
+        <label for="textNew">Type new fragment below.</label>
+        <input type="text" id="textNew" name="textNew">
+        <label for="textContent">Type the original content type.</label>
+        <input type="text" id="textContent" name="textContent">
+        <br/><br/>
+        <input type="submit" value="Submit">
+        <br/><br/>
+      </form>
+      <h4 id="msgPutHere"></h4>
+      <hr/>
+      <h1>Delete</h1>
+      <form id="formDelId">
+        <label for="textD">Delete a fragment. Type in the id of the fragment you want to delete.</label>
+        <input type="text" id="textD" name="textD">
+        <br/><br/>
+        <input type="submit" value="Submit">
+        <br/><br/>
+      </form>
+      <h4 id="msgHere"></h4>
+      <hr/>
     </section>
   </body>
 </html>
