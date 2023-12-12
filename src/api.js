@@ -1,7 +1,8 @@
 // src/api.js
 
 // fragments microservice API, defaults to localhost:8080
-const apiUrl = 'http://localhost:8080';
+const apiUrl = 'http://ec2con-ecsel-ej6j7slnqvxx-1891721232.us-east-1.elb.amazonaws.com:8080';
+//const apiUrl = 'http://localhost:8080';
 
 /**
  * Given an authenticated user, request all fragments for this user from the
@@ -11,7 +12,7 @@ const apiUrl = 'http://localhost:8080';
 export async function getUserFragments(user) {
   console.log('Requesting user fragments data...');
   try {
-    const res = await fetch(`${apiUrl}/v1/fragments?expand=1`, {
+    const res = await fetch(`${apiUrl}/v1/fragments`, {
       // Generate headers with the proper Authorization bearer token to pass
       headers: user.authorizationHeaders(),
     });
