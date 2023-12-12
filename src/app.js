@@ -1,7 +1,7 @@
 // src/app.js
 
 import { Auth, getUser } from './auth';
-import { getUserFragments, postUserFragments, displayFragments } from './api';
+import { getUserFragments, postUserFragments, displayFragments, getById, delById, putUserFragments } from './api';
 
 async function init() {
   // Get our UI elements
@@ -47,6 +47,30 @@ async function init() {
     textF.value = ' ';
   })
 
+  document.getElementById("formGetId").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var content = document.getElementById("textG").value;
+    console.log(`[${content}]`)
+    getById(user, content);
+  })
+
+  document.getElementById("formDelId").addEventListener("submit", function (e) {
+    e.preventDefault();
+    console.log("delete form listening")
+    var content = document.getElementById("textD").value;
+    console.log(`[${content}]`)
+    delById(user, content);
+  })
+
+  document.getElementById("formPutId").addEventListener("submit", function (e){
+    e.preventDefault();
+    console.log(`put form listening.`)
+    var fID = document.getElementById("textID").value;
+    var fNew = document.getElementById("textNew").value;
+    var fContent = document.getElementById("textContent").value;
+    console.log(`ID: ${fID}, New: ${fNew}, Content: ${fContent}`)
+    putUserFragments(user, fID, fNew, fContent);
+  })
   // Log the user info for debugging purposes
   console.log({ user });
 
