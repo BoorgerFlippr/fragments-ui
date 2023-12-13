@@ -40,10 +40,19 @@ async function init() {
   document.getElementById("form").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    var content = document.getElementById("textArea").value;
-    var textF = document.getElementById("textArea");
-    postUserFragments(user, content);
-
+    var c = document.getElementById("content-type").value;
+    console.log(c);
+    if (c.startsWith("image")){
+      console.log("image");
+      var content = document.getElementById("fFile").value;
+      console.log(content);
+      postUserFragments(user, content);
+    }else {
+      console.log("not image")
+      var content = document.getElementById("textArea").value;
+      postUserFragments(user, content);
+    }
+    var textF = document.getElementById("textArea")
     textF.value = ' ';
   })
 

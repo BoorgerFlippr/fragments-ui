@@ -46,6 +46,10 @@ export async function getById(user, id){
       const textC = await streamToString(res.body);
       var text = document.getElementById('dataHere');
       text.innerText = textC;
+    }else if(cType.startsWith("application")){
+      const c = await res.json();
+      var text = document.getElementById('dataHere');
+      text.innerText = c;
     }
   } catch (err) {
     console.error('Unable to call GET /v1/fragment', { err });
