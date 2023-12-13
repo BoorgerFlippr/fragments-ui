@@ -20,12 +20,17 @@
         <label for="textArea">Create a fragment</label>
         <textarea id="textArea" name="textArea" rows="4" cols="50">
         </textarea>
+        <input type="file" id="fFile" name="fFile">
         <label for="content-type">Select a content type:</label>
         <select id="content-type" name="content-type">
           <option value="text/plain">.txt</option>
           <option value="text/markdown">.md</option>
           <option value="text/html">.html</option>
           <option value="application/json">.json</option>
+          <option value="image/png">.png</option>
+          <option value="image/jpeg">.jpg</option>
+          <option value="image/webp">.webp</option>
+          <option value="image/gif">.gif</option>
         </select>
         <br/><br/>
         <input type="submit" value="Submit">
@@ -55,7 +60,9 @@
         <input type="submit" value="Submit">
         <br/><br/>
       </form>
-      <h4>User fragment: </h4><h4 id="dataHere"></h4>
+      <h4>User fragment: </h4>
+      <h4 id="dataHere"></h4>
+      <img id="fImg">
       <hr/>
       <h1>Update</h1>
       <form id="formPutId">

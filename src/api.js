@@ -33,11 +33,20 @@ export async function getById(user, id){
     const res = await fetch(`${apiUrl}/v1/fragments/${id}`, {
       headers: user.authorizationHeaders(),
     });
-    const data = await streamToString(res.body);
-    console.log(data);
-    //document.getElementById('dataHere') = data;
-    var text = document.getElementById('dataHere');
-    text.innerText = data;
+    const cType = res.headers.get("Content-Type");
+    console.log(cType)
+
+    if(cType.startsWith("image")){
+      const fImg = await res.blob();
+      const imgUrl = URL.createObjectURL(fImg);
+      const tUrl = imgUrl.substring(5);
+      console.log(`[${tUrl}]`); 
+      document.getElementById("fImg").src = tUrl;
+    }else if(cType.startsWith("text")){
+      const textC = await streamToString(res.body);
+      var text = document.getElementById('dataHere');
+      text.innerText = textC;
+    }
   } catch (err) {
     console.error('Unable to call GET /v1/fragment', { err });
   }
